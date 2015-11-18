@@ -1,7 +1,16 @@
+
+body{
+    margin: 0px;
+}
+
 #rma-widget {
     height: 480px;
     width: 320px;
     position: relative;
+    left: 0 !important;
+    margin-left: 0 !important;
+    top: 0 !important;
+    margin-top: 0 !important;
     /*border: 1px solid blue;*/
 }
 

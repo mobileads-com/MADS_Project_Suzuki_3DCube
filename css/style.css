@@ -423,7 +423,7 @@ code .nd {
 
     .popup {
         width: 94%;
-        padding: 0px 10px 20px 3px;
+        /*padding: 0px 10px 20px 3px;*/
     }
 
 }
@@ -476,7 +476,7 @@ figure img {
     width: 320px;
     height: 320px;
     /*margin: 1px;*/
-    border: 1px solid white;
+    /*border: 1px solid white;*/
     line-height: 280px;
     font-size: 120px;
     font-weight: bold;

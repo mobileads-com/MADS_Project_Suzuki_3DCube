@@ -149,6 +149,7 @@ var suzuki = function () {
                     box.addClassName('show-left');
                 });
                 $('.link.btn-link').on('click', function () {
+                    _this.sdk.tracker('E', 'site');
                     var s = 'http://ngage.nimbuzz.com/?adlink%7C3.0%7C1635%7C5672686%7C1%7C16%7CAdId=13477317;BnId=1;link=http://bs.serving-sys.com/BurstingPipe/adServer.bs?cn=tf&c=20&mc=click&pli=15429493&PluID=0&ord=[timestamp]'.replace('[timestamp]', Date.now());
                     _this.sdk.linkOpener(s);
                 });
@@ -198,7 +199,7 @@ suzuki.prototype.firstScreen = function () {
         '<div class="link  btn-link"></div>' +
         '</section></div>');
     _this.init();
-}
+};
 
 suzuki.prototype.init = function () {
     $(function () {

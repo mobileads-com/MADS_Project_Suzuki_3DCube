@@ -123,31 +123,31 @@ var suzuki = function () {
                     panelClassName = 'show-front';
 
                 onButtonClick = function (event) {
+                    switch(event.target.className) {
+                        case 'show-front':
+                            _this.sdk.tracker('E', 'infotainment');
+                            break;
+                        case 'show-right':
+                            _this.sdk.tracker('E', 'gear');
+                            break;
+                        case 'show-back':
+                            _this.sdk.tracker('E', 'engine');
+                            break;
+                        case 'show-left':
+                            _this.sdk.tracker('E', 'luv');
+                            break;
+                    }
                     box.removeClassName(panelClassName);
                     panelClassName = event.target.className;
                     box.addClassName(panelClassName);
                 };
 
-                $('.sfront').on('click', function () {
+                $('.btn-corner').on('click', function() {
                     box.removeClassName(panelClassName);
-                    panelClassName = 'show-front';
-                    box.addClassName('show-front');
+                    panelClassName = $(this).data('action');
+                    box.addClassName($(this).data('action'));
                 });
-                $('.sright').on('click', function () {
-                    box.removeClassName(panelClassName);
-                    panelClassName = 'show-right';
-                    box.addClassName('show-right');
-                });
-                $('.sback').on('click', function () {
-                    box.removeClassName(panelClassName);
-                    panelClassName = 'show-back';
-                    box.addClassName('show-back');
-                });
-                $('.sleft').on('click', function () {
-                    box.removeClassName(panelClassName);
-                    panelClassName = 'show-left';
-                    box.addClassName('show-left');
-                });
+
                 $('.link.btn-link').on('click', function () {
                     _this.sdk.tracker('E', 'site');
                     var s = 'http://ngage.nimbuzz.com/?adlink%7C3.0%7C1635%7C5672686%7C1%7C16%7CAdId=13477317;BnId=1;link=http://bs.serving-sys.com/BurstingPipe/adServer.bs?cn=tf&c=20&mc=click&pli=15429493&PluID=0&ord=[timestamp]'.replace('[timestamp]', Date.now());
@@ -192,10 +192,10 @@ suzuki.prototype.firstScreen = function () {
         '<figure class="top"><img src="' + _this.sdk.path + 'img/1.jpg" style="float: left;" /></figure>' +
         '<figure class="bottom"><img src="' + _this.sdk.path + 'img/2.jpg" style="float: left;" /></figure>' +
         '</div>' +
-        '<div class="sfront btn-corner"></div>' +
-        '<div class="sright btn-corner"></div>' +
-        '<div class="sback btn-corner"></div>' +
-        '<div class="sleft btn-corner"></div>' +
+        '<div class="sfront btn-corner" data-action="show-front"></div>' +
+        '<div class="sright btn-corner" data-action="show-right"></div>' +
+        '<div class="sback btn-corner" data-action="show-back"></div>' +
+        '<div class="sleft btn-corner" data-action="show-left"></div>' +
         '<div class="link  btn-link"></div>' +
         '</section></div>');
     _this.init();
